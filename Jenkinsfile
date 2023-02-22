@@ -6,26 +6,7 @@ pipeline {
    }
 
    stages {
-      stage('Necessary Commands'){
-         steps {
-
-            // Start ssh service
-            sh 'service ssh start'
-
-            // Modify docker.sock
-            sh 'chmod 666 /var/run/docker.sock'
-
-            // Install gcloud
-            sh """
-                  echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-                  
-                  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
-               
-                  apt-get update && apt-get install google-cloud-cli
-               """
-         }
-      }
-
+      
       stage('Build Image'){
          steps {
             sh 'docker build -t amrelzahar/node-application .'
