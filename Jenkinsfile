@@ -8,7 +8,7 @@ pipeline {
    stages {
       stage('Build Image'){
          steps {
-            sh 'docker build -t amrelzahar/simple-app .'
+            sh 'docker build -t amrelzahar/node-application .'
          }
       }
 
@@ -20,16 +20,16 @@ pipeline {
 
       stage('Push Image'){
          steps {
-            sh 'docker push amrelzahar/simple-app'
+            sh 'docker push amrelzahar/node-application'
          }
       }
 
       stage('deploy') {
          steps {
          
-               withCredentials([file(credentialsId: 'myconfig', variable: 'config')]) {
+               withCredentials([file(credentialsId: 'cluster-config', variable: 'config')]) {
                sh """
-                     kubectl apply -f Deployment --kubeconfig=${config}
+                     kubectl apply -f deployment --kubeconfig=${config}
                   """
             }
          }
