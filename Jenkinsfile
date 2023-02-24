@@ -28,7 +28,7 @@ pipeline {
       stage('deploy') {
          steps {
          
-               withCredentials([file(credentialsId: 'cluster-config', variable: 'config')]) {
+               withCredentials([file(credentialsId: 'cluster_config', variable: 'config')]) {
                sh """
                      kubectl apply -f deployment --kubeconfig=${config}
                   """
