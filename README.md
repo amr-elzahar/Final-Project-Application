@@ -64,3 +64,8 @@ passwd jenkins
 5) We are gonna need some other credentials, we will need docker hub credentials from username and paaword type and cluster config credentials from secret file type. The most easiest way for the cluster config credentials is to copy the config file in this path ~/.kube/config. It will be something like the config file in this repo.
 
 6) We are done!. You can build now.
+
+
+The final outpust is gonna be something like that:
+
+![Final Output](https://github.com/amr-elzahar/Final-Project-Application-Code/blob/main/final-output/final-output.png?raw=true)
