@@ -2,7 +2,7 @@ pipeline {
    agent {label 'jenkins-slave'}
 
    environment {
-      DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
+      DOCKERHUB_CREDENTIALS = credentials('dockerhub_creds')
    }
 
    stages {
